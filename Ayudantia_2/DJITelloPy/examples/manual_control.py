@@ -161,13 +161,7 @@ while True:
         safe_land()
         break
 
-    # =======================
-    # EMERGENCY
-    # =======================
-    if 'x' in pressed:
-        print("EMERGENCY STOP")
-        tello.emergency()
-        break
+
 
 # =======================
 # CLEANUP
