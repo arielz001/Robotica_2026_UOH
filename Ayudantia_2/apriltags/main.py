@@ -2,7 +2,8 @@ from pupil_apriltags import Detector
 import cv2
 import numpy as np
 
-cap = cv2.VideoCapture("data/video2.mp4")
+# cap = cv2.VideoCapture("data/video2.mp4")
+cap = cv2.VideoCapture(0)
 
 at_detector = Detector(
    families="tag36h11",
@@ -57,10 +58,8 @@ while True:
          (255,0,0),
          2
          )
-      cv2.imshow("AprilTags Video", frame)
-
-      if cv2.waitKey(100) & 0xFF == 27:  # ESC
-         break
+   cv2.imshow("AprilTags Video", frame)
+   cv2.waitKey(1)
 
 
 cap.release()
