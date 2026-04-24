@@ -9,6 +9,8 @@ def run_detection(model, source, cam=False):
 
     if cam:
         cap = cv2.VideoCapture(0)
+        # cap = cv2.VideoCapture("http://192.168.100.46:8080/video")
+
 
         while True:
             ret, frame = cap.read()
