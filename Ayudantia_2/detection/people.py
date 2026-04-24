@@ -59,6 +59,22 @@ def run_detection(model, source, cam=False):
 
         cv2.destroyAllWindows()
 
+def detect_and_draw(model, frame, device):
+    results = model.predict(frame, device=device, verbose=False)
+
+    img = frame.copy()
+
+    for r in results:
+        for box, cls, conf in zip(r.boxes.xyxy, r.boxes.cls, r.boxes.conf):
+            x1, y1, x2, y2 = map(int, box)
+            label = r.names[int(cls)]
+            text = f"{label} {conf:.2f}"
+
+            cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2)
+            cv2.putText(img, text, (x1, y1 - 10),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+
+    return img
 
 if __name__ == "__main__":
     model = YOLO("yolo26m.pt")
