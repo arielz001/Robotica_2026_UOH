@@ -90,9 +90,9 @@ ax[1].set_title("Espacio de Hough (Intersección de Curvas)", fontsize=12, fontw
 ax[1].set_xlabel("Ángulo Theta (grados)")
 ax[1].set_ylabel("Distancia Rho (píxeles)")
 
-# Pintar la cruz azul en el pico exacto (-45, 0)
+# Pintar la cruz azul en el exacto (-45, 0)
 ax[1].plot(np.rad2deg(theta_ganador), rho_ganador, 'cx', markersize=15, markeredgewidth=3)
-ax[1].text(np.rad2deg(theta_ganador)+5, rho_ganador+5, f"Pico Ganador\n(-45°, 0.0)\n3 Votos", color='cyan', fontsize=10, fontweight='bold')
+ax[1].text(np.rad2deg(theta_ganador)+5, rho_ganador+5, f"Ganador\n(-45°, 0.0)\n3 Votos", color='cyan', fontsize=10, fontweight='bold')
 
 plt.tight_layout()
 plt.show()
